@@ -6,7 +6,7 @@ import rpg_inventory
 def choose():
     option = input("Please enter a number: ")
     if option == "1":
-        rpg-game.start_game()
+        rpg_game.start_game()
     elif option == "2":
         pass
     elif option == "3":
@@ -26,6 +26,7 @@ def handle_menu():
 
 def main():
     print("Heart of Dungeon")
+    print("")
     handle_menu()
     choose()
 

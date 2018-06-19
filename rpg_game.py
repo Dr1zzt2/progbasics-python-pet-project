@@ -1,3 +1,7 @@
+import sys
+import time
+
+
 def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
@@ -6,6 +10,5 @@ def print_slow(str):
 
 
 def start_game():
-    print_slow("Welcome")
+    print_slow("Welcome!\n")
     time.sleep(1)
-
