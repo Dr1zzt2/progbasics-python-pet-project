@@ -1,5 +1,6 @@
 import sys
 import time
+import pickle
 
 
 def print_slow(str):
@@ -47,3 +48,8 @@ def pick_class():
             return "Mage"
         else:
             print("There is no such class.")
+
+
+def game_save(data):
+    with open('savefile', 'w') as f:
+        pickle.dump(data, f)
