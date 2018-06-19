@@ -1,12 +1,12 @@
 import sys
-import rpg-game
-import rpg-inventory
+import rpg_game
+import rpg_inventory
 
 
 def choose():
     option = input("Please enter a number: ")
     if option == "1":
-        start_game()
+        rpg-game.start_game()
     elif option == "2":
         pass
     elif option == "3":
@@ -25,6 +25,7 @@ def handle_menu():
 
 
 def main():
+    print("Heart of Dungeon")
     handle_menu()
     choose()
 
