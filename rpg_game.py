@@ -2,6 +2,7 @@ import sys
 import time
 import main
 import pickle
+import rpg_inventory
 
 
 def print_slow(str):
@@ -66,7 +67,7 @@ def game_core():
         elif option == "2":
             check_status()
         elif option == "3":
-            pass
+            rpg_inventory.show_inv_menu()
         elif option == "4":
             main.main()
         else:
