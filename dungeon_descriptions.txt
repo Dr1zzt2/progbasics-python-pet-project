@@ -1,4 +1,4 @@
-1. a simple room with mossy walls and rats in it.
+1. a simple room with mossy walls and some rats in it.
 2. a small room with carrions and dried blood all around the place.
 3. a dark room with chains.
 4. a cozy room with torches providing warm. There is an old table in the middle with some leftovers.
@@ -16,3 +16,5 @@
 16. a room full of withering books. All written in a languange unknown, long forgotten.
 17. a room full of rats.
 18. a cave so dark you can't see anything. Does being blind feel like this?
+19. a hall full of empty chests.
+20. a hall with broken tiles. Dirt, grass everywhere and light shines through a breach in the wall. It's your way out of here.
