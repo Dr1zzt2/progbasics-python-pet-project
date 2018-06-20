@@ -1,6 +1,7 @@
 import sys
 import time
 import main
+import pickle
 
 
 def print_slow(str):
@@ -78,3 +79,8 @@ def check_position():
 
 def create_dungeon():
     pass
+
+
+def game_save(data):
+    with open('savefile', 'w') as f:
+        pickle.dump(data, f)
