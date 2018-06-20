@@ -1,5 +1,6 @@
 import sys
 import time
+import main
 
 
 def print_slow(str):
@@ -19,6 +20,7 @@ def start_game():
     print_slow("It's time to choose your class.\n")
     time.sleep(1)
     player_class = pick_class()
+    game_core()
 
 
 def pick_class():
@@ -47,3 +49,32 @@ def pick_class():
             return "Mage"
         else:
             print("There is no such class.")
+
+
+def game_core():
+    options = ["1. Move",
+               "2. Check Status",
+               "3. Save Game"
+               "4. Quit to Menu"]
+    create_map()
+    while True:
+        print(check_position())
+        option = input("Please enter a number: ")
+        if option == "1":
+            movement()
+        elif option == "2":
+            check_status()
+        elif option == "3":
+            pass
+        elif option == "4":
+            main.main()
+        else:
+            print("There is no such option.")
+
+
+def check_position():
+    pass
+
+
+def create_dungeon():
+    pass
