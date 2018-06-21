@@ -87,7 +87,7 @@ def game_core(save_state):
 
 
 def encounter(dungeon, current_position):
-    with open("progbasics-python-pet-project/dungeon_descriptions.txt", "r") as descriptions_file:
+    with open("dungeon_descriptions.txt", "r") as descriptions_file:
         description_list = descriptions_file.readlines()
     print("You are in" + description_list[dungeon[current_position[0]][current_position[1]]][4:])
 
@@ -101,6 +101,7 @@ def find_start_position(dungeon):
 
 def movement(dungeon, current_position):
     options = []
+    battle_random = randint(1, 10)
     if current_position[1] > 0:
         options.append("N: North")
     if current_position[0] > 0:
@@ -115,6 +116,8 @@ def movement(dungeon, current_position):
         option = input("Please enter a letter: ")
         if option == "n" and "N: North" in options:
             current_position[1] -= 1
+            if battle_random == 1 or 3 or 6 or 9:
+                battle()
             return current_position
         elif option == "w" and "W: West" in options:
             current_position[0] -= 1
@@ -167,7 +170,7 @@ def game_load():
 def monster_choose(filename):
     with open(filename, "r") as f:
         lines = [line.split("\t")[0] for line in f]
-    random_get = random.randint(1, 12)
+    random_get = randint(1, 12)
     return lines[random_get]
 
 
@@ -176,29 +179,32 @@ def battle():
         Monster = [line.split('\t')[0] for line in f]
     with open('monsters.txt') as f:
         Monster_hp = [line.split('\t')[1] for line in f]
-    random_monster = random.randint(1, 11)
+    random_monster = randint(1, 11)
     which_monster = Monster[random_monster]
     hero_health = 100
     monster_health = Monster_hp[random_monster]
-    print(which_monster + 's health: ' + monster_health)
+    print_slow('You have encountered ' + str(Monster[random_monster]) + ' get ready for battle!\n')
+    print_slow(which_monster + 's health: ' + monster_health + '\n')
     while True:
         if hero_health <= 0:
             print('Hero died')
             break
-        input('Attack brave Hero')
-        print(str(hero_health) + ' hp')
-        hero_dmg = random.randint(10, 30)
+        input('Attack brave Hero\n')
+        print(str(hero_health) + ' hp\n')
+        hero_dmg = randint(10, 30)
         monster_health = int(monster_health) - hero_dmg
-        print('The Hero attacked the Monster for ' + str(hero_dmg) + ' damage')
+        print('The Hero attacked the Monster for ' + str(hero_dmg) + ' damage\n')
         if monster_health <= 0:
             print('You won')
             print('The monster has 0 hp!')
             break
-        print('The monster has ' + str(monster_health) + ' hp left')
+        print('The monster has ' + str(monster_health) + ' hp left\n')
+        print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
         input("Monster's turn")
-        print('Monster attack')
-        print(str(monster_health) + ' hp')
-        monster_dmg = random.randint(10, 20)
+        print('Monster attack\n')
+        print(str(monster_health) + ' hp\n')
+        monster_dmg = randint(10, 20)
         hero_health = hero_health - monster_dmg
-        print('The Monster attacked the Hero for ' + str(monster_dmg) + ' damage')
-        print('The Hero has ' + str(hero_health) + ' hp left')
+        print('The Monster attacked the Hero for ' + str(monster_dmg) + ' damage\n')
+        print('The Hero has ' + str(hero_health) + ' hp left\n')
+        print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
