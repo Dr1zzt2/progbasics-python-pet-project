@@ -1,0 +1,12 @@
+Murloc	35	12	3	10
+Shadow Bat	10	2	1	4
+Spider	5	2	1	2
+Moisty Giant	50	20	3	6
+Blood Soaked Unicorn	40	15	4	10
+Rats of the Drowned	5	3	2	4
+Lich King	100	30	10	20
+Saan Szhallazar the King of the Sea	40	12	10	15
+A rock	80	70	0	2
+Árpád Törzsök	50	20	5	15
+Sly	20	20	10	35
+The Bull	75	30	1	17

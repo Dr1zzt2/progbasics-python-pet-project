@@ -161,3 +161,42 @@ def game_load():
     print(current_position, dungeon, player_class)
     print("Game Loaded!")
     return current_position, dungeon, player_class
+
+def monster_choose(filename):
+    with open(filename, "r") as f:
+        lines = [line.split("\t")[0] for line in f]
+    random_get = random.randint(1, 12)
+    return lines[random_get]
+
+
+def battle():
+    with open('monsters.txt') as f:
+        Monster = [line.split('\t')[0] for line in f]
+    with open('monsters.txt') as f:
+        Monster_hp = [line.split('\t')[1] for line in f]
+    random_monster = random.randint(1, 11)
+    which_monster = Monster[random_monster]
+    hero_health = 100
+    monster_health = Monster_hp[random_monster]
+    print(which_monster + 's health: ' + monster_health)
+    while True:
+        if hero_health <= 0:
+            print('Hero died')
+            break
+        input('Attack brave Hero')
+        print(str(hero_health) + ' hp')
+        hero_dmg = random.randint(10, 30)
+        monster_health = int(monster_health) - hero_dmg
+        print('The Hero attacked the Monster for ' + str(hero_dmg) + ' damage')
+        if monster_health <= 0:
+            print('You won')
+            print('The monster has 0 hp!')
+            break
+        print('The monster has ' + str(monster_health) + ' hp left')
+        input("Monster's turn")
+        print('Monster attack')
+        print(str(monster_health) + ' hp')
+        monster_dmg = random.randint(10, 20)
+        hero_health = hero_health - monster_dmg
+        print('The Monster attacked the Hero for ' + str(monster_dmg) + ' damage')
+        print('The Hero has ' + str(hero_health) + ' hp left')
