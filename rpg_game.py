@@ -76,6 +76,7 @@ def game_core(save_state):
         elif option == "2":
             check_status()
         elif option == "3":
+            game_save(current_position, dungeon, player_class)
             rpg_inventory.show_inv_menu()
         elif option == "4":
             game_save(current_position, dungeon, player_class)
@@ -150,17 +151,18 @@ def create_dungeon():
 
 
 def game_save(current_position, dungeon, player_class):
-    with open('progbasics-python-pet-project/savefile.dat', 'wb') as f:
+    with open('savefile.dat', 'wb') as f:
         pickle.dump([current_position, dungeon, player_class], f)
     print("Game Saved!")
 
 
 def game_load():
-    with open('progbasics-python-pet-project/savefile.dat', 'rb') as f:
+    with open('savefile.dat', 'rb') as f:
         current_position, dungeon, player_class = pickle.load(f)
     print(current_position, dungeon, player_class)
     print("Game Loaded!")
     return current_position, dungeon, player_class
+
 
 def monster_choose(filename):
     with open(filename, "r") as f:

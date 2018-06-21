@@ -12,11 +12,11 @@ def show_items(inventory):
                 print(word)
     options = ['1. Equip an item',
                '2. Back to backpack']
-    print('Items')
+    print('Items \n')
     for option in options:
         print(option)
     while True:
-        option = input('Please enter a number: ')
+        option = input('Please enter a number: \n')
         if option == '1':
             pass
         elif option == '2':
@@ -27,15 +27,22 @@ def show_inv_menu():
     options = ['1. Equiped item(s)',
                '2. Backpack',
                '0. Exit']
-    print("Inventory:")
+    print("Inventory: \n")
     for option in options:
         print(option)
 
     while True:
-        options = input('Please enter a number: ')
+        options = input('Please enter a number: \n')
         if options == '1':
             show_equiped_items()
         elif options == '2':
-            show_items('inventory.txt')
+            display_inventory('inventory.txt')
         elif options == '0':
-            rpg_game.game_core(rpg_game.pick_class())
+            rpg_game.game_core(rpg_game.game_load())
+
+
+def display_inventory(inventory):
+    print("Inventory:")
+    for k, v in inventory.items():
+        print(k, v)
+    print("Total number of items:", sum(inventory.values()))
