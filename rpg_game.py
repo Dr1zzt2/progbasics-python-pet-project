@@ -2,6 +2,7 @@ import sys
 import time
 import main
 import pickle
+import rpg_inventory
 from random import randint
 
 
@@ -55,8 +56,9 @@ def pick_class():
 def game_core(save_state):
     options = ["1. Move",
                "2. Check Status",
-               "3. Save Game",
-               "4. Quit to Menu"]
+               "3. Inventory",
+               "4. Save Game",
+               "5. Quit to Menu"]
     if save_state is False:
         player_class = pick_class()
         dungeon = create_dungeon()
@@ -74,8 +76,10 @@ def game_core(save_state):
         elif option == "2":
             check_status()
         elif option == "3":
-            game_save(current_position, dungeon, player_class)
+            rpg_inventory.show_inv_menu()
         elif option == "4":
+            game_save(current_position, dungeon, player_class)
+        elif option == "5":
             main.main()
         else:
             print("There is no such option.")
