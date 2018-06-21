@@ -53,6 +53,10 @@ def pick_class():
             print("There is no such class.")
 
 
+def choose_kit():
+    pass
+
+
 def game_core(save_state):
     options = ["1. Move",
                "2. Check Status",
@@ -115,7 +119,7 @@ def movement(dungeon, current_position):
         option = input("Please enter a letter: ")
         if option == "n" and "N: North" in options:
             current_position[1] -= 1
-            if battle_random == 1 or 3 or 6 or 9:
+            if battle_random == 1 or 3 or 9:
                 battle()
             return current_position
         elif option == "w" and "W: West" in options:
@@ -173,29 +177,32 @@ def monster_choose(filename):
     return lines[random_get]
 
 
+def health_check(health, name):
+    if health <= 0:
+        print(str(name) + ' died\n')
+        return True
+
+
 def battle():
     with open('monsters.txt') as f:
-        Monster = [line.split('\t')[0] for line in f]
-    with open('monsters.txt') as f:
         Monster_hp = [line.split('\t')[1] for line in f]
-    random_monster = randint(1, 11)
+    with open('monsters.txt') as f:
+        Monster = [line.split('\t')[0] for line in f]
+    random_monster = randint(1, 12)
     which_monster = Monster[random_monster]
     hero_health = 100
     monster_health = Monster_hp[random_monster]
     print_slow('You have encountered ' + str(Monster[random_monster]) + ' get ready for battle!\n')
     print_slow(which_monster + 's health: ' + monster_health + '\n')
     while True:
-        if hero_health <= 0:
-            print('Hero died')
+        if health_check(hero_health, "Hero") is True:
             break
         input('Attack brave Hero\n')
         print(str(hero_health) + ' hp\n')
         hero_dmg = randint(10, 30)
         monster_health = int(monster_health) - hero_dmg
         print('The Hero attacked the Monster for ' + str(hero_dmg) + ' damage\n')
-        if monster_health <= 0:
-            print('You won')
-            print('The monster has 0 hp!')
+        if health_check(monster_health, which_monster) is True:
             break
         print('The monster has ' + str(monster_health) + ' hp left\n')
         print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
