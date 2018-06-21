@@ -22,8 +22,7 @@ def start_game():
     time.sleep(1)
     print_slow("It's time to choose your class.\n")
     time.sleep(1)
-    player_class = pick_class()
-    game_core(player_class)
+    game_core(False)
 
 
 def pick_class():
@@ -54,15 +53,19 @@ def pick_class():
             print("There is no such class.")
 
 
-def game_core(player_class):
+def game_core(save_state):
     options = ["1. Move",
                "2. Check Status",
                "3. Inventory",
                "4. Save Game",
                "5. Quit to Menu"]
-    dungeon = create_dungeon()
-    start_position = find_start_position(dungeon)
-    current_position = start_position
+    if save_state is False:
+        player_class = pick_class()
+        dungeon = create_dungeon()
+        start_position = find_start_position(dungeon)
+        current_position = start_position
+    if save_state is True:
+        current_position, dungeon, player_class = game_load()
     while True:
         for option in options:
             print(option)
@@ -75,7 +78,7 @@ def game_core(player_class):
         elif option == "3":
             rpg_inventory.show_inv_menu()
         elif option == "4":
-            game_save()
+            game_save(current_position, dungeon, player_class)
         elif option == "5":
             main.main()
         else:
@@ -84,7 +87,8 @@ def game_core(player_class):
 
 def encounter(dungeon, current_position):
     with open("progbasics-python-pet-project/dungeon_descriptions.txt", "r") as descriptions_file:
-        print(descriptions_file.readlines())
+        description_list = descriptions_file.readlines()
+    print("You are in" + description_list[dungeon[current_position[0]][current_position[1]]][4:])
 
 
 def find_start_position(dungeon):
@@ -108,16 +112,16 @@ def movement(dungeon, current_position):
         for option in options:
             print(option)
         option = input("Please enter a letter: ")
-        if option == "N" and "N: North" in options:
+        if option == "n" and "N: North" in options:
             current_position[1] -= 1
             return current_position
-        elif option == "W" and "W: West" in options:
+        elif option == "w" and "W: West" in options:
             current_position[0] -= 1
             return current_position
-        elif option == "E" and "E: East" in options:
+        elif option == "e" and "E: East" in options:
             current_position[0] += 1
             return current_position
-        elif option == "S" and "S: South" in options:
+        elif option == "s" and "S: South" in options:
             current_position[1] += 1
             return current_position
         else:
@@ -145,6 +149,15 @@ def create_dungeon():
     return dungeon
 
 
-def game_save(data):
-    with open('savefile', 'w') as f:
-        pickle.dump(data, f)
+def game_save(current_position, dungeon, player_class):
+    with open('progbasics-python-pet-project/savefile.dat', 'wb') as f:
+        pickle.dump([current_position, dungeon, player_class], f)
+    print("Game Saved!")
+
+
+def game_load():
+    with open('progbasics-python-pet-project/savefile.dat', 'rb') as f:
+        current_position, dungeon, player_class = pickle.load(f)
+    print(current_position, dungeon, player_class)
+    print("Game Loaded!")
+    return current_position, dungeon, player_class
