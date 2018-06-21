@@ -6,13 +6,13 @@ def show_equiped_items():
 
 
 def show_items(inventory):
+    print('Items \n')
     with open(inventory) as f:
         for line in f:
             for word in line.split():
                 print(word)
     options = ['1. Equip an item',
                '2. Back to backpack']
-    print('Items \n')
     for option in options:
         print(option)
     while True:
@@ -36,13 +36,6 @@ def show_inv_menu():
         if options == '1':
             show_equiped_items()
         elif options == '2':
-            display_inventory('inventory.txt')
+            show_items('inventory.txt')
         elif options == '0':
             rpg_game.game_core(rpg_game.game_load())
-
-
-def display_inventory(inventory):
-    print("Inventory:")
-    for k, v in inventory.items():
-        print(k, v)
-    print("Total number of items:", sum(inventory.values()))

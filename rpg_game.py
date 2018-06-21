@@ -132,6 +132,29 @@ def movement(dungeon, current_position):
             print("There is no such option.")
 
 
+def check_status():
+    pass
+
+
+def heroes_hp():
+    heroes_hp_stat = {'Warrior': 100, 'Ranger': 80, 'Mage': 60}
+    return heroes_hp_stat
+
+
+def heroes_dmg():
+    heroes_dmg_stat = {'Warrior': 30, 'Ranger': 40, 'Mage': 50}
+    return heroes_dmg_stat
+
+
+def load_hero_stat(hp, dmg, pick_class):
+    if pick_class == "Warrior":
+        return heroes_stat['Warrior']
+    elif pick_class == "Ranger":
+        return heroes_stat['Ranger']
+    elif pick_class == "Mage":
+        return heroes_stat['Mage']
+
+
 def create_dungeon():
     dungeon = [[0 for x in range(6)] for y in range(6)]
     while True:
@@ -175,6 +198,7 @@ def monster_choose(filename):
 
 
 def battle():
+    heroes = heroes_stat()
     with open('monsters.txt') as f:
         Monster = [line.split('\t')[0] for line in f]
     with open('monsters.txt') as f:
