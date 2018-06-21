@@ -1,20 +1,37 @@
-1. a simple room with mossy walls and some rats in it.
-2. a small room with carrions and dried blood all around the place.
-3. a dark room with chains.
-4. a cozy room with torches providing warm. There is an old table in the middle with some leftovers.
-5. a large room with a dark pit in the middle. Will you jump in the Abyss?
-6. a gloomy cave, full of mushrooms and small insects.
-7. a huge cave with fireflies providing light. There is a waterfall on the side. Maybe there are treasures behind it?
-8. a dark cave, echoing with screams. They are never end.
-9. a cave system full of giant tropical plants. Those yellow fruits... are they edible?
-10. a tall cave, with an altar. Sunlight shines upon it from above.
-11. a bar with a crafty innkeeper. Would you rather remember, or forget?
-12. an icy, frozen cave. You might freeze here.
-13. a room. A simple. empty room. Wait... are those spiders?
-14. a room with beds and torches. Writings are on the wall. With blood and coal.
-15. a cave with a river running across. You see a bridge glowing with green light.
-16. a room full of withering books. All written in a languange unknown, long forgotten.
-17. a room full of rats.
-18. a cave so dark you can't see anything. Does being blind feel like this?
-19. a hall full of empty chests.
-20. a hall with broken tiles. Dirt, grass everywhere and light shines through a breach in the wall. It's your way out of here.
+000. 
+001. a simple room with mossy walls and some rats in it.
+002. a small room with carrions and dried blood all around the place.
+003. a dark room with chains.
+004. a cozy room with torches providing warm. There is an old table in the middle with some leftovers.
+005. a large room with a dark pit in the middle. Will you jump in the Abyss?
+006. a gloomy cave, full of mushrooms and small insects.
+007. a huge cave with fireflies providing light. There is a waterfall on the side. Maybe there are treasures behind it?
+008. a dark cave, echoing with screams. They are never end.
+009. a cave system full of giant tropical plants. Those yellow fruits... are they edible?
+010. a tall cave, with an altar. Sunlight shines upon it from above.
+011. a bar with a crafty innkeeper. Would you rather remember, or forget?
+012. an icy, frozen cave. You might freeze here.
+013. a room. A simple. empty room. Wait... are those spiders?
+014. a room with beds and torches. Writings are on the wall. With blood and coal.
+015. a cave with a river running across. You see a bridge glowing with green light.
+016. a room full of withering books. All written in a languange unknown, long forgotten.
+017. a room full of rats.
+018. a cave so dark you can't see anything. Does being blind feel like this?
+019. a hall full of empty chests.
+020. a hall with broken tiles. Dirt, grass everywhere and light shines through a breach in the wall. It's your way out of here.
+021.
+022.
+023.
+024.
+025.
+026.
+027.
+028.
+029.
+030.
+031.
+032.
+033.
+034.
+035.
+036.

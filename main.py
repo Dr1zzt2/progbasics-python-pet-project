@@ -8,7 +8,7 @@ def choose():
     if option == "1":
         rpg_game.start_game()
     elif option == "2":
-        pass
+        rpg_game.game_core(True)
     elif option == "3":
         sys.exit(0)
     else:
